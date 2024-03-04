@@ -2,12 +2,21 @@ import React from 'react';
 import { range } from '../../utils';
 import { checkGuess } from '../../game-helpers';
 
+function Cell( {letter, status} ) {
+  const classes = status ? `cell ${status}` : 'cell'
+  return <span className={classes}>{letter}</span>;
+}
+
 function Guess({ value, answer }) {
-  const styles = value && checkGuess(value, answer)
+  const result = checkGuess(value, answer)
   return <p className="guess">
     {range(5).map((idx) => {
-      const classes = styles ? `cell ${styles[idx]['status']}` : 'cell'
-      return <span className={classes} key={idx} >{value && value[idx]}</span>;
+      return <Cell 
+        key={idx}
+        letter={result ? result[idx].letter : undefined}
+        status={result ? result[idx].status : undefined}
+      />
+      
     })}   
   </p>;
 }
