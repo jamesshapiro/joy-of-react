@@ -13,7 +13,7 @@ function useKeypress(keyCode, callback) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [keyCode, callback]);
 }
 
 export default useKeypress;
