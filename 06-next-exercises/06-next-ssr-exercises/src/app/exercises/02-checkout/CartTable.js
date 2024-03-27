@@ -2,6 +2,10 @@
 import React from 'react';
 
 function CartTable({ items, handleDeleteItem }) {
+  if (typeof items === 'undefined') {
+    return <Spinner />
+  }
+
   return (
     <table className="shopping-cart">
       <thead>
