@@ -5,7 +5,9 @@ import ToastShelf from '../../../components/ToastShelf'
 
 import './styles.css';
 
-
+export const metadata = {
+  title: 'Metadata title'
+}
 
 function FlashMsgLayout({ children }) {
   return (
